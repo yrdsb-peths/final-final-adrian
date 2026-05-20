@@ -12,14 +12,14 @@ public class Player extends Actor
     double angle = 0;
     
     // Max distance the ball will be from the center of the circle
-    int radius = 120;
+    int radius = 180;
     
     // Center of the circle
     int xCenter = 300;
-    int yCenter = 350;
+    int yCenter = 420;
     
     // Changes how big the changes in the angle is, which determines how fast the player moves around the circle
-    double speed = 0.1;
+    double speed = 0.03;
     
     
     public Player()
@@ -48,7 +48,7 @@ public class Player extends Actor
         /* Calculates the x position. xCenter is added by cos of the angle times radius to determine how far right or left 
         we are on the circle */
         int posX = (int)(xCenter + (radius * Math.cos(angle)));
-        /* Calculates the y position. yCenter is added by sin of the agnle times radius to determine how far up or down
+        /* Calculates the y position. yCenter is added by sin of the angle times radius to determine how far up or down
         we are on the circle */
         int posY = (int)(yCenter + (radius * Math.sin(angle)));
         

@@ -5,6 +5,6 @@ public class MyWorld extends World {
         super(600, 700, 1);
         
         Player ball = new Player();
-        addObject(ball, 300, 350);
+        addObject(ball, 300, 420);
     }
 }
