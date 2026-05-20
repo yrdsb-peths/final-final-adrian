@@ -60,14 +60,24 @@ public class Player extends Actor
         setLocation(posX, posY);
     }
     
+    // Stores whether or not space was down previously
+    boolean wasSpaceDown = false;
     // This method allows the user to change the direction by pressing space
     public void changeDirection()
     {
-        // Makes the direction positive or negative when space is pressed
-        if(Greenfoot.isKeyDown("space"))
+        // Stores whether or not space is down right now
+        boolean spaceDown = Greenfoot.isKeyDown("space");
+        
+        /* Makes the direction positive or negative when space is pressed if the the space button is pressed 
+        * when it wasn't previously already pressed*/
+        if(spaceDown && !wasSpaceDown)
         {
             direction = direction * -1;
         }
+        
+        // Updates the wasSpaceDown state to be the same as the spaceDown state right now
+        wasSpaceDown = spaceDown;
+        
     }
     
 }
