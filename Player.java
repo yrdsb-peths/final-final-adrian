@@ -21,6 +21,9 @@ public class Player extends Actor
     // Changes how big the changes in the angle is, which determines how fast the player moves around the circle
     double speed = 0.03;
     
+    // 1 for clockwise and -1 for counter clockwise
+    int direction = 1;
+    
     
     public Player()
     {
@@ -37,13 +40,14 @@ public class Player extends Actor
     {
         // Add your action code here.
         movePlayer();
+        changeDirection();
     }
     
     // This method moves the player in a circular path. Uses cos for x position and sin for y position like unit circle.
     public void movePlayer()
     {
         // updates the angle from the center
-        angle = angle + speed;
+        angle = angle + (speed * direction);
         
         /* Calculates the x position. xCenter is added by cos of the angle times radius to determine how far right or left 
         we are on the circle */
@@ -54,6 +58,16 @@ public class Player extends Actor
         
         // Sets the location of the player
         setLocation(posX, posY);
+    }
+    
+    // This method allows the user to change the direction by pressing space
+    public void changeDirection()
+    {
+        // Makes the direction positive or negative when space is pressed
+        if(Greenfoot.isKeyDown("space"))
+        {
+            direction = direction * -1;
+        }
     }
     
 }
