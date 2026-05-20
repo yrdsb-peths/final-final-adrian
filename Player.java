@@ -8,6 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
+    // Angle relative to the center point of imaginary circle
+    double angle = 0;
+    
+    // Max distance the ball will be from the center of the circle
+    int radius = 120;
+    
+    // Center of the circle
+    int xCenter = 300;
+    int yCenter = 350;
+    
+    // Changes how big the changes in the angle is, which determines how fast the player moves around the circle
+    double speed = 0.1;
+    
+    
     public Player()
     {
         GreenfootImage image = new GreenfootImage("images/Blue ball.png");
@@ -22,5 +36,24 @@ public class Player extends Actor
     public void act()
     {
         // Add your action code here.
+        movePlayer();
     }
+    
+    // This method moves the player in a circular path. Uses cos for x position and sin for y position like unit circle.
+    public void movePlayer()
+    {
+        // updates the angle from the center
+        angle = angle + speed;
+        
+        /* Calculates the x position. xCenter is added by cos of the angle times radius to determine how far right or left 
+        we are on the circle */
+        int posX = (int)(xCenter + (radius * Math.cos(angle)));
+        /* Calculates the y position. yCenter is added by sin of the agnle times radius to determine how far up or down
+        we are on the circle */
+        int posY = (int)(yCenter + (radius * Math.sin(angle)));
+        
+        // Sets the location of the player
+        setLocation(posX, posY);
+    }
+    
 }
