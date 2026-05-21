@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
-    // Angle relative to the center point of imaginary circle
+    // Angle relative to the center point of an imaginary circle
     double angle = 0;
     
     // Max distance the ball will be from the center of the circle
@@ -19,7 +19,7 @@ public class Player extends Actor
     int yCenter = 420;
     
     // Changes how big the changes in the angle is, which determines how fast the player moves around the circle
-    double speed = 0.03;
+    double speed = 0.04;
     
     // 1 for clockwise and -1 for counter clockwise
     int direction = 1;
