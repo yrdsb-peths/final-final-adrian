@@ -14,6 +14,9 @@ public class Block extends Actor
     private String blockType;
     private int speed;
     
+    private int rotation = 0;
+    private int rotationSpeed = 3;
+    
     /**
      * Act - do whatever the Block wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -43,9 +46,22 @@ public class Block extends Actor
         }
         animationTimer.mark();
         
-        setImage(expression[imageIndex]);
+        //setImage(expression[imageIndex]);
+                
         imageIndex = (imageIndex + 1) % expression.length;
     
+    }
+    
+    public void updateBlock()
+    {
+        // Create a copy of the current frame
+        GreenfootImage frame = new GreenfootImage(expression[imageIndex]);
+        
+        // Rotate frame
+        frame.rotate(rotation);
+
+        // Set rotated frame
+        setImage(frame);
     }
     
     // Moves the block downward
@@ -57,7 +73,7 @@ public class Block extends Actor
     // Rotates the block
     public void rotateBlock()
     {
-        getImage().rotate(3);
+        rotation += rotationSpeed;
     }
     
     public void removeIfOffScreen()
@@ -74,6 +90,7 @@ public class Block extends Actor
         animateBlock();
         fall();
         rotateBlock();
+        updateBlock();
         removeIfOffScreen();
     }
 }
