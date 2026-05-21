@@ -61,7 +61,7 @@ public class Block extends Actor
     public void animateBlock()
     {
         // Delay between poses
-        if(animationTimer.millisElapsed() < 1000)
+        if(animationTimer.millisElapsed() < 500)
         {
             return;
         }
