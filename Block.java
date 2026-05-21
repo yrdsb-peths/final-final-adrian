@@ -39,10 +39,10 @@ public class Block extends Actor
             // Scale the visible block
             original.scale(45, 45);
 
-            // Create larger clear canvas so when the block rotates the corners do not get clipped
+            // Create larger white square image to so when the block rotates the corners do not get clipped
             GreenfootImage largerCanvas = new GreenfootImage(80, 80);
 
-            // Draw original visible image in center of the canvas
+            // Draws original visible image onto the center of the white square
             largerCanvas.drawImage(original, 15, 15);
 
             // Store the clear canvas image
@@ -55,8 +55,9 @@ public class Block extends Actor
         setImage(expression[0]);
     }
     
-    // Animates the block
+    // Records which pose we are on
     int imageIndex = 0;
+    // Animates the block
     public void animateBlock()
     {
         // Delay between poses
@@ -74,7 +75,7 @@ public class Block extends Actor
     // Updates the block rotation on the actual block sprite
     public void updateBlock()
     {
-        // Create a copy of the current frame
+        // Create a copy of the current frame to not mess with the animations
         GreenfootImage frame = new GreenfootImage(expression[imageIndex]);
         
         // Rotate frame
