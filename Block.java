@@ -12,15 +12,17 @@ public class Block extends Actor
     SimpleTimer animationTimer = new SimpleTimer();
     
     private String blockType;
+    private int speed;
     
     /**
      * Act - do whatever the Block wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Block(String image)
+    public Block(String image, int theSpeed)
     {
         for(int i = 0; i < expression.length; i++)
         {
+            speed = theSpeed;
             blockType = image;
             expression[i] = new GreenfootImage("images/" + blockType + i + ".png");
             expression[i].scale(50,50);
@@ -46,9 +48,32 @@ public class Block extends Actor
     
     }
     
+    // Moves the block downward
+    public void fall()
+    {
+        setLocation(getX(), getY() + speed);
+    }
+    
+    // Rotates the block
+    public void rotateBlock()
+    {
+        getImage().rotate(3);
+    }
+    
+    public void removeIfOffScreen()
+    {
+        if(getY() > getWorld().getHeight())
+        {
+            getWorld().removeObject(this);
+        }
+    }
+    
     public void act()
     {
         // Add your action code here.
         animateBlock();
+        fall();
+        rotateBlock();
+        removeIfOffScreen();
     }
 }

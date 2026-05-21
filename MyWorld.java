@@ -7,7 +7,7 @@ public class MyWorld extends World {
         Player ball = new Player();
         addObject(ball, 300, 420);
         
-        Block obstacle = new Block("Red");
+        Block obstacle = new Block("Red", 3);
         addObject(obstacle, 300, 200);
     }
 }
