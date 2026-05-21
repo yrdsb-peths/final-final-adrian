@@ -11,10 +11,14 @@ public class Block extends Actor
     GreenfootImage [] expression = new GreenfootImage[2];
     SimpleTimer animationTimer = new SimpleTimer();
     
+    // Block image
     private String blockType;
+    // Falling speed
     private int speed;
     
+    // What rotation offset we are on
     private int rotation = 0;
+    // Rotation speed
     private int rotationSpeed = 3;
     
     /**
@@ -23,16 +27,31 @@ public class Block extends Actor
      */
     public Block(String image, int theSpeed)
     {
-        for(int i = 0; i < expression.length; i++)
+        // Sets instance variables
+        speed = theSpeed;
+        blockType = image;
+        
+        for (int i = 0; i < expression.length; i++)
         {
-            speed = theSpeed;
-            blockType = image;
-            expression[i] = new GreenfootImage("images/" + blockType + i + ".png");
-            expression[i].scale(50,50);
+            // Original image
+            GreenfootImage original = new GreenfootImage("images/" + blockType + i + ".png");
+
+            // Scale the visible block
+            original.scale(45, 45);
+
+            // Create larger clear canvas so when the block rotates the corners do not get clipped
+            GreenfootImage largerCanvas = new GreenfootImage(80, 80);
+
+            // Draw original visible image in center of the canvas
+            largerCanvas.drawImage(original, 15, 15);
+
+            // Store the clear canvas image
+            expression[i] = largerCanvas;
         }
         
         animationTimer.mark();
         
+        // Sets original image
         setImage(expression[0]);
     }
     
@@ -46,8 +65,7 @@ public class Block extends Actor
         }
         animationTimer.mark();
         
-        //setImage(expression[imageIndex]);
-                
+        // Loops through and back the array    
         imageIndex = (imageIndex + 1) % expression.length;
     
     }
