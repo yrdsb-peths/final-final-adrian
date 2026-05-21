@@ -24,11 +24,12 @@ public class Player extends Actor
     // 1 for clockwise and -1 for counter clockwise
     int direction = 1;
     
-    
+    // Player constructor
     public Player()
     {
+        // Sets image and size
         GreenfootImage image = new GreenfootImage("images/Blue ball.png");
-        image.scale(50,40);
+        image.scale(45,35);
         setImage(image);        
     }
     
