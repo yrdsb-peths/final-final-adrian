@@ -55,10 +55,11 @@ public class Block extends Actor
         setImage(expression[0]);
     }
     
-    // Animate the block
+    // Animates the block
     int imageIndex = 0;
     public void animateBlock()
     {
+        // Delay between poses
         if(animationTimer.millisElapsed() < 1000)
         {
             return;
@@ -70,6 +71,7 @@ public class Block extends Actor
     
     }
     
+    // Updates the block rotation on the actual block sprite
     public void updateBlock()
     {
         // Create a copy of the current frame
@@ -94,9 +96,10 @@ public class Block extends Actor
         rotation += rotationSpeed;
     }
     
+    // If the block is off the screen remove it
     public void removeIfOffScreen()
     {
-        if(getY() > getWorld().getHeight())
+        if(getY() > 730)
         {
             getWorld().removeObject(this);
         }
