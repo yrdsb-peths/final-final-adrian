@@ -1,11 +1,19 @@
 import greenfoot.*;
 
 public class MyWorld extends World {
-
+    
+    // Timer that increases ever frame
     private int blockSpawnTimer = 0;
+    
+    // Stores the users score
+    private Counter scoreCounter;
+    
     
     public MyWorld() {
         super(600, 750, 1);
+        
+        scoreCounter = new Counter();
+        addObject(scoreCounter, 100, 40);
         
         Player ball = new Player();
         addObject(ball, 300, 420);
@@ -48,5 +56,10 @@ public class MyWorld extends World {
         }
         
         
+    }
+    
+    public void addScore(int points)
+    {
+        scoreCounter.add(points);
     }
 }
