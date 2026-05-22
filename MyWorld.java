@@ -10,6 +10,10 @@ public class MyWorld extends World {
         Player ball = new Player();
         addObject(ball, 300, 420);
         
+        PointBlock b = new PointBlock("Point", 3);
+        addObject(b, 300, 420);
+        
+        
     }
     
     

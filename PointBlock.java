@@ -17,10 +17,39 @@ public class PointBlock extends Block
     {
         super(blockType, speed);
         
+        for (int i = 0; i < expression.length; i++)
+        {
+            // Original image
+            GreenfootImage original = new GreenfootImage("images/" + blockType + i + ".png");
+
+            // Scale the visible block
+            original.scale(45, 45);
+
+            // Create larger white square image to so when the block rotates the corners do not get clipped
+            GreenfootImage largerCanvas = new GreenfootImage(80, 80);
+
+            // Draws original visible image onto the center of the white square
+            largerCanvas.drawImage(original, 15, 15);
+
+            // Store the clear canvas image
+            expression[i] = largerCanvas;
+        }
+        
+        animationTimer.mark();
+        
+        // Sets original image
+        setImage(expression[0]);
+        
     }
     
     public void act()
     {
         // Add your action code here.
+        animateBlock();
+        fall();
+        rotateBlock();
+        updateBlock();
+        checkCollision();
+        removeIfOffScreen();
     }
 }
