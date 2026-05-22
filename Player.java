@@ -50,10 +50,10 @@ public class Player extends Actor
         // updates the angle from the center
         angle = angle + (speed * direction);
         
-        /* Calculates the x position. xCenter is added by cos of the angle times radius to determine how far right or left 
+        /* Calculates the x position. xCenter is added to cos of the angle times radius to determine how far right or left 
         we are on the circle */
         int posX = (int)(xCenter + (radius * Math.cos(angle)));
-        /* Calculates the y position. yCenter is added by sin of the angle times radius to determine how far up or down
+        /* Calculates the y position. yCenter is added to sin of the angle times radius to determine how far up or down
         we are on the circle */
         int posY = (int)(yCenter + (radius * Math.sin(angle)));
         
@@ -63,7 +63,7 @@ public class Player extends Actor
     
     // Stores whether or not space was down previously
     boolean wasSpaceDown = false;
-    // This method allows the user to change the direction by pressing space
+    // This method allows the user to change the direction by pressing space but not holding
     public void changeDirection()
     {
         // Stores whether or not space is down right now
