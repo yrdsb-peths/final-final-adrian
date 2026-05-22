@@ -12,7 +12,7 @@ public class Player extends Actor
     double angle = 0;
     
     // Max distance the ball will be from the center of the circle
-    int radius = 180;
+    int radius = 181;
     
     // Center of the circle
     int xCenter = 280;
@@ -29,7 +29,7 @@ public class Player extends Actor
     {
         // Sets image and size
         GreenfootImage image = new GreenfootImage("images/Pink ball.png");
-        image.scale(38,38);
+        image.scale(50,50);
         setImage(image);        
     }
     
