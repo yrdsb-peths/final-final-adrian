@@ -10,8 +10,6 @@ public class MyWorld extends World {
         Player ball = new Player();
         addObject(ball, 300, 420);
         
-        Block obstacle = new Block("Red", 3);
-        addObject(obstacle, 300, 200);
     }
     
     
@@ -20,16 +18,19 @@ public class MyWorld extends World {
         spawnBlocks();
     }
     
+    // spawns block every 70 frames
     public void spawnBlocks()
     {
         blockSpawnTimer ++;
         
         if(blockSpawnTimer % 70 == 0)
         {
+            // Sets random x position except for some space on the edges of screen
             int posX = Greenfoot.getRandomNumber((getWidth() - 120 ) + 60);
             int posY = 30;
             
-            addObject(new Block("Red", 3), posX, posY);
+            // Spawn block
+            addObject(new Block("Red", 5), posX, posY);
         }
         
         
