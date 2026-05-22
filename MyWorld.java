@@ -21,8 +21,8 @@ public class MyWorld extends World {
 
         scoreLabel = new Label("0",120);
         addObject(scoreLabel, 280, 80);
-        scoreLabel.setFillColor(new Color(148, 168, 190));
-        scoreLabel.setLineColor(new Color(148, 168, 190)); 
+        scoreLabel.setFillColor(Color.PINK);
+        scoreLabel.setLineColor(Color.PINK); 
         
         Path playerPath = new Path();
         addObject(playerPath, 280, 390);
