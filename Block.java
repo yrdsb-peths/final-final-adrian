@@ -19,7 +19,7 @@ public class Block extends Actor
     // What rotation offset we are on
     private int rotation = 0;
     // Rotation speed
-    private int rotationSpeed = 3;
+    private int rotationSpeed = 1;
     
     /**
      * Act - do whatever the Block wants to do. This method is called whenever
