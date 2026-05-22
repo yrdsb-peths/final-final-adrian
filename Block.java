@@ -25,11 +25,11 @@ public class Block extends Actor
      * Act - do whatever the Block wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Block(String image, int theSpeed)
+    public Block(String blockType, int speed)
     {
         // Sets instance variables
-        speed = theSpeed;
-        blockType = image;
+        this.speed = speed;
+        this.blockType = blockType;
         
         for (int i = 0; i < expression.length; i++)
         {
