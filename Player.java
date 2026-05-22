@@ -28,8 +28,8 @@ public class Player extends Actor
     public Player()
     {
         // Sets image and size
-        GreenfootImage image = new GreenfootImage("images/Blue ball.png");
-        image.scale(45,35);
+        GreenfootImage image = new GreenfootImage("images/Pink ball.png");
+        image.scale(38,38);
         setImage(image);        
     }
     
