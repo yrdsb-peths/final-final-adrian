@@ -106,6 +106,30 @@ public class Block extends Actor
         }
     }
     
+    // If the block is touching the player, the game ends
+    public void checkCollision()
+    {
+        // Gets this world
+        World world = getWorld();
+        // Gets all players in this world (1) and stores it into a array and then get the first player in the array
+        Player player = (Player)world.getObjects(Player.class).get(0);
+        
+        // Gets the horizontal distance between the player and the block
+        int xDistance = getX() - player.getX();
+        // Gets the vertical distance between the player and the block
+        int yDistance = getY() - player.getY();
+        
+        // Gets the shortest distance between the player and the block
+        double distance = (xDistance * xDistance) + (yDistance * yDistance);
+        distance = Math.sqrt(distance);
+        
+        // If the distance between the objects is less than a certain distance then the game ends
+        if(distance < 38)
+        {
+            Greenfoot.stop();
+        }
+    }
+    
     public void act()
     {
         // Add your action code here.
@@ -113,6 +137,7 @@ public class Block extends Actor
         fall();
         rotateBlock();
         updateBlock();
+        checkCollision();
         removeIfOffScreen();
     }
 }
