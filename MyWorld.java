@@ -15,9 +15,14 @@ public class MyWorld extends World {
     public MyWorld() {
         super(560, 720, 1);
         
+        // Set background colour
+        getBackground().setColor(new Color(199, 174, 210));
+        getBackground().fill();
 
         scoreLabel = new Label("0",100);
         addObject(scoreLabel, 280, 80);
+        scoreLabel.setFillColor(new Color(148, 168, 190));
+        scoreLabel.setLineColor(new Color(148, 168, 190));
         
         Player ball = new Player();
         addObject(ball, 280, 360);       
