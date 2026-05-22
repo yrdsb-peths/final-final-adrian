@@ -25,10 +25,10 @@ public class MyWorld extends World {
         scoreLabel.setLineColor(new Color(148, 168, 190)); 
         
         Path playerPath = new Path();
-        addObject(playerPath, 280, 360);
+        addObject(playerPath, 280, 390);
         
         Player ball = new Player();
-        addObject(ball, 280, 360); 
+        addObject(ball, 280, 390); 
         
     }
     
