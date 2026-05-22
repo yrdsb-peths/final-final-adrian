@@ -37,7 +37,7 @@ public class Block extends Actor
             GreenfootImage original = new GreenfootImage("images/" + blockType + i + ".png");
 
             // Scale the visible block
-            original.scale(45, 45);
+            original.scale(55, 55);
 
             // Create larger white square image to so when the block rotates the corners do not get clipped
             GreenfootImage largerCanvas = new GreenfootImage(80, 80);

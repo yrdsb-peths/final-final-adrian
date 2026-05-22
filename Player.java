@@ -19,7 +19,7 @@ public class Player extends Actor
     int yCenter = 360;
     
     // Changes how big the changes in the angle is, which determines how fast the player moves around the circle
-    double speed = 0.04;
+    double speed = 0.055;
     
     // 1 for clockwise and -1 for counter clockwise
     int direction = 1;
