@@ -84,7 +84,7 @@ public class PointBlock extends Block
             distance = Math.sqrt(distance);        
             
             // If the distance between the objects is less than a certain distance then the use gets a point
-            if(distance < 38)
+            if(distance < 45)
             {
                 ((MyWorld)world).addScore(1);
                 world.removeObject(this);

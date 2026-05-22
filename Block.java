@@ -134,7 +134,7 @@ public class Block extends Actor
         {
             // If the distance between the objects is less than a certain distance then the game ends and returns true 
             // to tell the game that the object is removed
-            if(distance < 38)
+            if(distance < 45)
             {
                 Greenfoot.stop();
                 return true;
