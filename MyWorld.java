@@ -10,17 +10,13 @@ public class MyWorld extends World {
     
     
     public MyWorld() {
-        super(600, 750, 1);
+        super(560, 720, 1);
         
         scoreCounter = new Counter();
         addObject(scoreCounter, 100, 40);
         
         Player ball = new Player();
-        addObject(ball, 300, 420);
-        
-        PointBlock b = new PointBlock("Point", 3);
-        addObject(b, 300, 420);
-        
+        addObject(ball, 280, 360);       
         
     }
     

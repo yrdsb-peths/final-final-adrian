@@ -15,8 +15,8 @@ public class Player extends Actor
     int radius = 180;
     
     // Center of the circle
-    int xCenter = 300;
-    int yCenter = 420;
+    int xCenter = 280;
+    int yCenter = 360;
     
     // Changes how big the changes in the angle is, which determines how fast the player moves around the circle
     double speed = 0.04;

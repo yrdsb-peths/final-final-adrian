@@ -100,7 +100,7 @@ public class Block extends Actor
     // If the block is off the screen remove it
     public boolean removeIfOffScreen()
     {
-        if(getY() > 730)
+        if(getY() > 700)
         {
             getWorld().removeObject(this);
             return true;
