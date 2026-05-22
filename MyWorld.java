@@ -33,8 +33,18 @@ public class MyWorld extends World {
             int posX = Greenfoot.getRandomNumber((getWidth() - 120 ) + 60);
             int posY = 30;
             
+            // Generates a random number used to determine which block spawns
+            int random = Greenfoot.getRandomNumber(100);
+            
             // Spawn block
-            addObject(new Block("Red", 5), posX, posY);
+            if(random < 70)
+            {
+                addObject(new Block("Red", 5), posX, posY);
+            }
+            else if(random > 71)
+            {
+                addObject(new PointBlock("Point", 5), posX, posY);
+            }
         }
         
         
