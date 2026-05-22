@@ -6,14 +6,18 @@ public class MyWorld extends World {
     private int blockSpawnTimer = 0;
     
     // Stores the users score
-    private Counter scoreCounter;
+    private int score = 0;
+    
+    // Label of the score
+    private Label scoreLabel;
     
     
     public MyWorld() {
         super(560, 720, 1);
         
-        scoreCounter = new Counter();
-        addObject(scoreCounter, 100, 40);
+
+        scoreLabel = new Label("0",100);
+        addObject(scoreLabel, 280, 80);
         
         Player ball = new Player();
         addObject(ball, 280, 360);       
@@ -56,6 +60,7 @@ public class MyWorld extends World {
     
     public void addScore(int points)
     {
-        scoreCounter.add(points);
+        score += points;
+        scoreLabel.setValue("" + score);
     }
 }
