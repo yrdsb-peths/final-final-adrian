@@ -19,7 +19,7 @@ public class MyWorld extends World {
         getBackground().setColor(new Color(199, 174, 210));
         getBackground().fill();
 
-        scoreLabel = new Label("0",100);
+        scoreLabel = new Label("0",120);
         addObject(scoreLabel, 280, 80);
         scoreLabel.setFillColor(new Color(148, 168, 190));
         scoreLabel.setLineColor(new Color(148, 168, 190)); 
