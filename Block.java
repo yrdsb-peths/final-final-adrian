@@ -98,16 +98,19 @@ public class Block extends Actor
     }
     
     // If the block is off the screen remove it
-    public void removeIfOffScreen()
+    public boolean removeIfOffScreen()
     {
         if(getY() > 730)
         {
             getWorld().removeObject(this);
+            return true;
         }
+        
+        return false;
     }
     
     // If the block is touching the player, the game ends
-    public void checkCollision()
+    public boolean checkCollision()
     {
         // Gets this world
         World world = getWorld();
@@ -123,21 +126,43 @@ public class Block extends Actor
         double distance = (xDistance * xDistance) + (yDistance * yDistance);
         distance = Math.sqrt(distance);
         
-        // If the distance between the objects is less than a certain distance then the game ends
-        if(distance < 38)
+        // Creates a list of all players
+        java.util.List<Player> players = world.getObjects(Player.class);
+        
+        // Ensures a player exists
+        if(players.size() > 0)
         {
-            Greenfoot.stop();
+            // If the distance between the objects is less than a certain distance then the game ends and returns true 
+            // to tell the game that the object is removed
+            if(distance < 38)
+            {
+                Greenfoot.stop();
+                return true;
+            }
         }
+        
+        // If object is not removed
+        return false;
+        
     }
     
     public void act()
     {
         // Add your action code here.
+        
+        // These two if statements check if the object actually exists and has not been removed, before doing anything else with them
+        if (checkCollision()) 
+        {
+            return; 
+        }
+        
+        if(removeIfOffScreen())
+        {
+            return;
+        } 
         animateBlock();
         fall();
         rotateBlock();
         updateBlock();
-        checkCollision();
-        removeIfOffScreen();
     }
 }

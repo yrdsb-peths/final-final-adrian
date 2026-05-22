@@ -45,11 +45,52 @@ public class PointBlock extends Block
     public void act()
     {
         // Add your action code here.
+        
+        // These two if statements check if the object actually exists and has not been removed, before doing anything else with them
+        if (checkCollision()) {
+        return; 
+        }
+
+        if(removeIfOffScreen())
+        {
+            return;
+        } 
         animateBlock();
         fall();
         rotateBlock();
         updateBlock();
-        checkCollision();
-        removeIfOffScreen();
+    }
+    
+    public boolean checkCollision()
+    {
+        // Gets this world
+        World world = getWorld();
+        // Creates a list of all players
+        java.util.List<Player> players = world.getObjects(Player.class);
+        
+        // Ensures a player exists
+        if(players.size() > 0)
+        {
+            // Gets all players in this world (1) and stores it into a array and then get the first player in the array
+            Player player = (Player)world.getObjects(Player.class).get(0);
+            
+            // Gets the horizontal distance between the player and the block
+            int xDistance = getX() - player.getX();
+            // Gets the vertical distance between the player and the block
+            int yDistance = getY() - player.getY();
+        
+            // Gets the shortest distance between the player and the block
+            double distance = (xDistance * xDistance) + (yDistance * yDistance);
+            distance = Math.sqrt(distance);        
+            
+            // If the distance between the objects is less than a certain distance then the use gets a point
+            if(distance < 38)
+            {
+                world.removeObject(this);
+                return true;
+            }
+        }
+        
+        return false;        
     }
 }
