@@ -31,5 +31,10 @@ public class TitleScreen extends World
         
         titleLabel2.setFillColor(new Color(170, 51, 106));
         titleLabel2.setLineColor(new Color(170, 51, 106)); 
+        
+        // Add play button
+        Button playButton = new Button(new MyWorld(), "Play");
+        addObject(playButton, 280, 550);
+    
     }
 }
