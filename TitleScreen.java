@@ -24,7 +24,12 @@ public class TitleScreen extends World
         getBackground().fill();
         
         // Add title
-        addObject(titleLabel1, 280, 300);
-        addObject(titleLabel2, 280, 400);
+        addObject(titleLabel1, 280, 250);
+        addObject(titleLabel2, 280, 350);
+        
+        titleLabel1.setLineColor(Color.WHITE);
+        
+        titleLabel2.setFillColor(new Color(170, 51, 106));
+        titleLabel2.setLineColor(new Color(170, 51, 106)); 
     }
 }
