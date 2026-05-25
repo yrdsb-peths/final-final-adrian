@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TitleScreen extends World
 {
-
+    Label titleLabel1 = new Label("Block", 100);
+    Label titleLabel2 = new Label("Fall", 100);
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -21,5 +22,9 @@ public class TitleScreen extends World
         // Set background colour
         getBackground().setColor(new Color(199, 174, 210));
         getBackground().fill();
+        
+        // Add title
+        addObject(titleLabel1, 280, 300);
+        addObject(titleLabel2, 280, 400);
     }
 }
