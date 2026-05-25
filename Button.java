@@ -44,5 +44,14 @@ public class Button extends Actor
     public void act()
     {
         // Add your action code here.
+        checkForClick();
+    }
+    
+    public void checkForClick()
+    {
+        if(Greenfoot.mouseClicked(this))
+        {
+            Greenfoot.setWorld(nextWorld);
+        }
     }
 }
