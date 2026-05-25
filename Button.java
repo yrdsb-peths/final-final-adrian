@@ -26,11 +26,11 @@ public class Button extends Actor
         buttonImage.scale(200,70);
         
         // Create the text image
-        GreenfootImage textImage = new GreenfootImage(text, 40, Color.BLACK, new Color(0,0,0,0));
+        GreenfootImage textImage = new GreenfootImage(text, 40, Color.WHITE, new Color(0,0,0,0));
         
         // Center the text image onto the button image
-        int textX = (buttonImage.getWidth() - textImage.getWidth()) / 2;
-        int textY = (buttonImage.getHeight() - textImage.getHeight()) / 2;
+        int textX = ((buttonImage.getWidth() - textImage.getWidth()) / 2) + 5;
+        int textY = ((buttonImage.getHeight() - textImage.getHeight()) / 2 - 2);
         
         // Draw the text image right onto the button image
         buttonImage.drawImage(textImage, textX, textY);
