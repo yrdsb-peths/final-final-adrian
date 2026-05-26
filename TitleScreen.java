@@ -34,7 +34,11 @@ public class TitleScreen extends World
         
         // Add play button
         Button playButton = new Button(new MyWorld(), "Play");
-        addObject(playButton, 280, 550);
+        addObject(playButton, 280, 520);
+        
+        // Add tutorial button
+        Button tutorialButton = new Button(new TutorialScreen(), "Tutorial");
+        addObject(tutorialButton, 280, 600);
     
     }
 }
