@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TutorialScreen extends World
 {
-
     /**
      * Constructor for objects of class TutorialScreen.
      * 
@@ -21,5 +20,11 @@ public class TutorialScreen extends World
         // Set background colour
         getBackground().setColor(new Color(199, 174, 210));
         getBackground().fill();
+        
+        // Add how to play label
+        Label tutorialLabel = new Label("How to play", 100);
+        addObject(tutorialLabel, 280, 50);
+        
+        tutorialLabel.setLineColor(Color.WHITE);
     }
 }
