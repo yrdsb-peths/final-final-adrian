@@ -27,7 +27,7 @@ public class MyWorld extends World {
         Path playerPath = new Path();
         addObject(playerPath, 280, 390);
         
-        Player ball = new Player();
+        Player ball = new Player(181, 280, 390, 0.055);
         addObject(ball, 280, 390); 
         
     }

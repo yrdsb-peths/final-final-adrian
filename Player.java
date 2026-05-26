@@ -12,21 +12,26 @@ public class Player extends Actor
     double angle = 0;
     
     // Max distance the ball will be from the center of the circle
-    int radius = 181;
+    private int radius;
     
     // Center of the circle
-    int xCenter = 280;
-    int yCenter = 390;
+    private int xCenter;
+    private int yCenter;
     
     // Changes how big the changes in the angle is, which determines how fast the player moves around the circle
-    double speed = 0.055;
+    private double speed;
     
     // 1 for clockwise and -1 for counter clockwise
     int direction = 1;
     
     // Player constructor
-    public Player()
+    public Player(int radius, int xCenter, int yCenter, double speed)
     {
+        this.radius = radius;
+        this.xCenter = xCenter;
+        this.yCenter = yCenter;
+        this.speed = speed;
+        
         // Sets image and size
         GreenfootImage image = new GreenfootImage("images/Pink ball.png");
         image.scale(50,50);
