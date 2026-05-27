@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TutorialScreen extends World
 {
+    private int pageNum = 0;
     /**
      * Constructor for objects of class TutorialScreen.
      * 
@@ -26,5 +27,16 @@ public class TutorialScreen extends World
         addObject(tutorialLabel, 280, 50);
         
         tutorialLabel.setLineColor(Color.WHITE);
+    }
+    
+    public void loadPage()
+    {
+        // Remove all old objects in the world
+        removeObjects(getObjects(null));
+        
+        if(pageNum == 0)
+        {
+            
+        }
     }
 }
