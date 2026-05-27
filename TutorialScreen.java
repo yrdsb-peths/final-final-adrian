@@ -24,13 +24,16 @@ public class TutorialScreen extends World
         
         loadPage();
         
-        
     }
+    
     
     public void loadPage()
     {
         // Remove all old objects in the world
         removeObjects(getObjects(null));
+        
+        // Adds next page button
+        addObject(new NextPageButton(this), 400, 650);
         
         if(pageNum == 0)
         {
@@ -42,6 +45,22 @@ public class TutorialScreen extends World
             Label tutorialLabelTwo = new Label("press next to start", 80);
             addObject(tutorialLabelTwo, 280, 150);
             tutorialLabelTwo.setLineColor(Color.WHITE);
+        }
+        else if(pageNum == 1)
+        {
+            // Add player movement label
+            Label playerMovement = new Label("Player movement", 80);
+            addObject(playerMovement, 280, 50);
+            playerMovement.setLineColor(Color.WHITE);
+            
+            // Add press space label
+            Label space = new Label("Press space to change direction", 40);
+            addObject(space, 280, 550);
+            space.setLineColor(Color.WHITE);
+            
+            // Add player instance as an example
+            Player ball = new Player(140, 280, 300, 0.055);
+            addObject(ball, 280, 390); 
         }
     }
     
