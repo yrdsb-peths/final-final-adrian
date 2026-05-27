@@ -44,4 +44,12 @@ public class TutorialScreen extends World
             tutorialLabelTwo.setLineColor(Color.WHITE);
         }
     }
+    
+    public void nextPage()
+    {
+        // Update the page number
+        pageNum++;
+        // Load the current page
+        loadPage();
+    }
 }
