@@ -22,11 +22,9 @@ public class TutorialScreen extends World
         getBackground().setColor(new Color(199, 174, 210));
         getBackground().fill();
         
-        // Add how to play label
-        Label tutorialLabel = new Label("How to play", 100);
-        addObject(tutorialLabel, 280, 50);
+        loadPage();
         
-        tutorialLabel.setLineColor(Color.WHITE);
+        
     }
     
     public void loadPage()
@@ -36,7 +34,14 @@ public class TutorialScreen extends World
         
         if(pageNum == 0)
         {
+            // Add how to play label
+            Label tutorialLabelOne = new Label("This is the tutorial", 80);
+            addObject(tutorialLabelOne, 280, 50);
+            tutorialLabelOne.setLineColor(Color.WHITE);
             
+            Label tutorialLabelTwo = new Label("press next to start", 80);
+            addObject(tutorialLabelTwo, 280, 150);
+            tutorialLabelTwo.setLineColor(Color.WHITE);
         }
     }
 }
