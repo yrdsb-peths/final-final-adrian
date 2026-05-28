@@ -62,6 +62,17 @@ public class TutorialScreen extends World
             Player ball = new Player(140, 280, 300, 0.055);
             addObject(ball, 280, 390); 
         }
+        else if(pageNum == 2)
+        {
+            // Dodge red blocks label
+            Label dodge = new Label("Dodge red blocks", 80);
+            addObject(dodge, 280, 50);
+            dodge.setLineColor(Color.WHITE);
+            
+            // Add player instance as an example
+            Player ball = new Player(140, 280, 300, 0.055);
+            addObject(ball, 280, 390);
+        }
     }
     
     public void nextPage()
