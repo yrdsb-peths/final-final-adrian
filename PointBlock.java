@@ -12,7 +12,7 @@ public class PointBlock extends Block
      * Act - do whatever the PointBlock wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
+    // Contructor
     public PointBlock(String blockType, int speed)
     {
         super(blockType, speed);
@@ -28,7 +28,7 @@ public class PointBlock extends Block
             // Create larger white square image to so when the block rotates the corners do not get clipped
             GreenfootImage largerCanvas = new GreenfootImage(80, 80);
 
-            // Draws original visible image onto the center of the white square
+            // Draws original visible image onto the center of the white square making it one object
             largerCanvas.drawImage(original, 15, 15);
 
             // Store the clear canvas image
@@ -46,7 +46,9 @@ public class PointBlock extends Block
     {
         // Add your action code here.
         
-        // These two if statements check if the object actually exists and has not been removed, before doing anything else with them
+        /* These two if statements check if the object actually exists and has not been removed, before doing anything else with them
+        to avoid crashing
+        */
         if (checkCollision()) {
         return; 
         }
@@ -55,9 +57,14 @@ public class PointBlock extends Block
         {
             return;
         } 
+        
+        // Animates the block
         animateBlock();
+        // Moves the block down
         fall();
+        // Rotates the block
         rotateBlock();
+        // Applies all these things to the block sprite
         updateBlock();
     }
     
@@ -86,6 +93,7 @@ public class PointBlock extends Block
             // If the distance between the objects is less than a certain distance then the use gets a point
             if(distance < 45)
             {
+                // Uses a method from the MyWorld world to update the score label that is in the MyWorld world
                 ((MyWorld)world).addScore(1);
                 world.removeObject(this);
                 return true;
