@@ -9,6 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class TutorialScreen extends World
 {
     private int pageNum = 0;
+    
+    // Timer that controls how many frames before a block spawns
+    private int blockSpawnTimer = 0;
+    
     /**
      * Constructor for objects of class TutorialScreen.
      * 
@@ -24,6 +28,22 @@ public class TutorialScreen extends World
         
         loadPage();
         
+    }
+    
+    public void act()
+    {
+        if(pageNum == 2)
+        {
+            // Spawns tutorial red blocks randomly
+            int posX = Greenfoot.getRandomNumber((getWidth() - 300 ) + 150);
+            int posY = 30;
+            
+            blockSpawnTimer ++;
+            if(blockSpawnTimer % 70 == 0)
+            {
+                addObject(new TutorialRedBlock("Red", 5), posX, posY);
+            }
+        }
     }
     
     
@@ -72,6 +92,7 @@ public class TutorialScreen extends World
             // Add player instance as an example
             Player ball = new Player(140, 280, 300, 0.055);
             addObject(ball, 280, 390);
+            
         }
     }
     
