@@ -93,8 +93,12 @@ public class PointBlock extends Block
             // If the distance between the objects is less than a certain distance then the use gets a point
             if(distance < 45)
             {
-                // Uses a method from the MyWorld world to update the score label that is in the MyWorld world
-                ((MyWorld)world).addScore(1);
+                /* Uses a method from the MyWorld world to update the score label that is in the MyWorld world only if it is in myWorld
+                not tutorial world */
+                if(world instanceof MyWorld)
+                {
+                    ((MyWorld)world).addScore(1);
+                }
                 world.removeObject(this);
                 return true;
             }

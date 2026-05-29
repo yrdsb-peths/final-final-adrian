@@ -44,6 +44,18 @@ public class TutorialScreen extends World
                 addObject(new TutorialRedBlock("Red", 5), posX, posY);
             }
         }
+        else if(pageNum == 3)
+        {
+            // Spawns point blocks randomly on page 4 of the tutorial world
+            int posX = Greenfoot.getRandomNumber((getWidth() - 300 ) + 150);
+            int posY = 30;
+            
+            blockSpawnTimer ++;
+            if(blockSpawnTimer % 70 == 0)
+            {
+                addObject(new PointBlock("Point", 5), posX, posY);
+            }
+        }
     }
     
     
@@ -93,6 +105,20 @@ public class TutorialScreen extends World
             Player ball = new Player(140, 280, 300, 0.055);
             addObject(ball, 280, 390);
             
+        }
+        else if(pageNum == 3)
+        {
+            // Get point blocks label
+            Label pointOne = new Label("Get these blocks", 80);
+            Label pointTwo = new Label("for points", 80);
+            addObject(pointOne, 280, 50);
+            addObject(pointTwo, 280, 100);
+            pointOne.setLineColor(Color.WHITE);
+            pointTwo.setLineColor(Color.WHITE);
+            
+            // Add player instance as an example
+            Player ball = new Player(140, 280, 300, 0.055);
+            addObject(ball, 280, 390);            
         }
     }
     
