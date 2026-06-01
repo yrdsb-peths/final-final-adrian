@@ -9,10 +9,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class NextPageButton extends Actor
 {
     private TutorialScreen tutorialScreen;
+    private boolean isBackButton;
     
-    public NextPageButton(TutorialScreen tutorialScreen)
+    public NextPageButton(TutorialScreen tutorialScreen, boolean isBackButton)
     {
         this.tutorialScreen = tutorialScreen;
+        this.isBackButton = isBackButton;
         
         // Create the button image
         GreenfootImage buttonImage = new GreenfootImage("images/Button.png");
