@@ -73,11 +73,11 @@ public class TutorialScreen extends World
         if(pageNum == 0)
         {
             // Add how to play label
-            Label tutorialLabelOne = new Label("This is the tutorial", 80);
+            Label tutorialLabelOne = new Label("This is the tutorial", 60);
             addObject(tutorialLabelOne, 280, 50);
             tutorialLabelOne.setLineColor(Color.WHITE);
             
-            Label tutorialLabelTwo = new Label("press next to start", 80);
+            Label tutorialLabelTwo = new Label("press next to start", 60);
             addObject(tutorialLabelTwo, 280, 150);
             tutorialLabelTwo.setLineColor(Color.WHITE);
         }
