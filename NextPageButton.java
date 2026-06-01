@@ -21,7 +21,15 @@ public class NextPageButton extends Actor
         buttonImage.scale(200,70);
         
         // Create the text image
-        GreenfootImage textImage = new GreenfootImage("Next", 40, Color.WHITE, new Color(0,0,0,0));
+        GreenfootImage textImage;
+        if(isBackButton)
+        {
+            textImage = new GreenfootImage("Back", 40, Color.WHITE, new Color(0,0,0,0));
+        }
+        else
+        {
+            textImage = new GreenfootImage("Next", 40, Color.WHITE, new Color(0,0,0,0));
+        }
         
         // Center the text image onto the button image
         int textX = ((buttonImage.getWidth() - textImage.getWidth()) / 2) + 5;

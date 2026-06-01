@@ -65,7 +65,10 @@ public class TutorialScreen extends World
         removeObjects(getObjects(null));
         
         // Adds next page button 
-        addObject(new NextPageButton(this, false), 400, 650);
+        addObject(new NextPageButton(this, false), 450, 650);
+        
+        // Adds back page button
+        addObject(new NextPageButton(this, true), 100, 650);
         
         if(pageNum == 0)
         {
