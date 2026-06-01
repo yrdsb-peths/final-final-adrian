@@ -129,4 +129,12 @@ public class TutorialScreen extends World
         // Load the current page
         loadPage();
     }
+    
+    public void prevPage()
+    {
+        // Update the page number
+        pageNum--;
+        // Load the current page
+        loadPage();
+    }
 }

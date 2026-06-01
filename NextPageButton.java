@@ -43,7 +43,14 @@ public class NextPageButton extends Actor
         // Add your action code here.
         if(Greenfoot.mouseClicked(this))
         {
-            tutorialScreen.nextPage();
+            if(isBackButton)
+            {
+                tutorialScreen.prevPage();
+            }
+            else
+            {
+                tutorialScreen.nextPage();
+            }
         }
     }
 }
