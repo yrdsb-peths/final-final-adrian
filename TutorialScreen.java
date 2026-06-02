@@ -58,15 +58,17 @@ public class TutorialScreen extends World
         }
     }
     
-    
+    // Loads a new page
     public void loadPage()
     {
-        // Remove all old objects in the world
+        // Remove all old objects in the world first
         removeObjects(getObjects(null));
         
+        // Displays corresponding information depending on what page the user is on
         if(pageNum == 0)
         {
-            // Add how to play labels
+            // This page is an intro
+            // Add this is the tutorial label and press next to start label
             Label tutorialLabelOne = new Label("This is the tutorial", 60);
             addObject(tutorialLabelOne, 280, 50);
             tutorialLabelOne.setLineColor(Color.WHITE);
@@ -78,12 +80,13 @@ public class TutorialScreen extends World
             // Adds next page button 
             addObject(new NextPageButton(this, false), 450, 650);
             
-            // Add back button that goes back to the start screen world
+            // Add back button that goes back to the title screen world
             Button backButton = new Button("title", "Back");
             addObject(backButton, 100, 650);
         }
         else if(pageNum == 1)
         {
+            // This page shows the user how the movement in this game works
             // Add player movement label
             Label playerMovement = new Label("Player movement", 80);
             addObject(playerMovement, 280, 50);
@@ -105,6 +108,7 @@ public class TutorialScreen extends World
         }
         else if(pageNum == 2)
         {
+            // This page shows the user what block they should dodge
             // Dodge red blocks label
             Label dodge = new Label("Dodge red blocks", 80);
             addObject(dodge, 280, 50);
@@ -123,6 +127,7 @@ public class TutorialScreen extends World
         }
         else if(pageNum == 3)
         {
+            // This page shows the user what block they should get
             // Get point blocks label
             Label pointOne = new Label("Get these blocks", 80);
             Label pointTwo = new Label("for points", 80);
@@ -143,6 +148,8 @@ public class TutorialScreen extends World
         }
     }
     
+    // These methods updates the pageNum variable accordingly and uses the load page method
+    // These methods are called in the NextPageButton class and is used when that object is clicked
     public void nextPage()
     {
         // Update the page number
