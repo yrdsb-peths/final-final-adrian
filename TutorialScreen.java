@@ -64,12 +64,6 @@ public class TutorialScreen extends World
         // Remove all old objects in the world
         removeObjects(getObjects(null));
         
-        // Adds next page button 
-        addObject(new NextPageButton(this, false), 450, 650);
-        
-        // Adds back page button
-        addObject(new NextPageButton(this, true), 100, 650);
-        
         if(pageNum == 0)
         {
             // Add how to play labels
@@ -81,8 +75,11 @@ public class TutorialScreen extends World
             addObject(tutorialLabelTwo, 280, 150);
             tutorialLabelTwo.setLineColor(Color.WHITE);
             
+            // Adds next page button 
+            addObject(new NextPageButton(this, false), 450, 650);
+            
             // Add back button that goes back to the start screen world
-            Button backButton = new Button(new TitleScreen(), "Back");
+            Button backButton = new Button("title", "Back");
             addObject(backButton, 100, 650);
         }
         else if(pageNum == 1)
@@ -97,6 +94,11 @@ public class TutorialScreen extends World
             addObject(space, 280, 550);
             space.setLineColor(Color.WHITE);
             
+            // Adds next page button 
+            addObject(new NextPageButton(this, false), 450, 650);
+            // Adds back page button
+            addObject(new NextPageButton(this, true), 100, 650);
+            
             // Add player instance as an example
             Player ball = new Player(140, 280, 300, 0.055);
             addObject(ball, 280, 390); 
@@ -107,6 +109,12 @@ public class TutorialScreen extends World
             Label dodge = new Label("Dodge red blocks", 80);
             addObject(dodge, 280, 50);
             dodge.setLineColor(Color.WHITE);
+            
+            // Adds next page button 
+            addObject(new NextPageButton(this, false), 450, 650);
+            
+            // Adds back page button
+            addObject(new NextPageButton(this, true), 100, 650);
             
             // Add player instance as an example
             Player ball = new Player(140, 280, 300, 0.055);
@@ -122,6 +130,12 @@ public class TutorialScreen extends World
             addObject(pointTwo, 280, 100);
             pointOne.setLineColor(Color.WHITE);
             pointTwo.setLineColor(Color.WHITE);
+            
+            // Adds next page button 
+            addObject(new NextPageButton(this, false), 450, 650);
+            
+            // Adds back page button
+            addObject(new NextPageButton(this, true), 100, 650);
             
             // Add player instance as an example
             Player ball = new Player(140, 280, 300, 0.055);

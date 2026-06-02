@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Button extends Actor
 {
-    private World nextWorld;
+    private String nextWorld;
     private String text;
     
     
@@ -16,7 +16,7 @@ public class Button extends Actor
      * Act - do whatever the Button wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Button(World nextWorld, String text)
+    public Button(String nextWorld, String text)
     {
         this.nextWorld = nextWorld;
         this.text = text;
@@ -49,9 +49,20 @@ public class Button extends Actor
     
     public void checkForClick()
     {
-        if(Greenfoot.mouseClicked(this))
+         if(Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(nextWorld);
+            if(nextWorld.equals("title"))
+            {
+                Greenfoot.setWorld(new TitleScreen());
+            }
+            else if(nextWorld.equals("tutorial"))
+            {
+                Greenfoot.setWorld(new TutorialScreen());
+            }
+            else if(nextWorld.equals("game"))
+            {
+                Greenfoot.setWorld(new MyWorld());
+            }
         }
     }
 }

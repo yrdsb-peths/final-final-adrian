@@ -33,11 +33,11 @@ public class TitleScreen extends World
         titleLabel2.setLineColor(new Color(170, 51, 106)); 
         
         // Add play button
-        Button playButton = new Button(new MyWorld(), "Play");
+        Button playButton = new Button("game", "Play");
         addObject(playButton, 280, 520);
         
         // Add tutorial button
-        Button tutorialButton = new Button(new TutorialScreen(), "Tutorial");
+        Button tutorialButton = new Button("tutorial", "Tutorial");
         addObject(tutorialButton, 280, 600);
     
     }
