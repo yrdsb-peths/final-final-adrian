@@ -11,6 +11,9 @@ public class MyWorld extends World {
     // Label of the score
     private Label scoreLabel;
     
+    // Label of the streak
+    private Label streakLabel;
+    
     // Stores the player streak
     private int streak = 0;
     
@@ -27,6 +30,12 @@ public class MyWorld extends World {
         addObject(scoreLabel, 280, 80);
         scoreLabel.setFillColor(Color.PINK);
         scoreLabel.setLineColor(Color.PINK); 
+        
+        // Creates the streak label and starts it at 0
+        streakLabel = new Label("Streak: 0", 60);
+        addObject(streakLabel, 280, 150);
+        streakLabel.setFillColor(Color.PINK);
+        streakLabel.setLineColor(Color.PINK);
         
         // Creates the path (ring) that the user follows
         Path playerPath = new Path();
@@ -75,8 +84,13 @@ public class MyWorld extends World {
     // This method updates the score. It is called in the point block class
     public void addScore()
     {
+        // Updates streak
         streak++;
         
+        // Updates streak label
+        streakLabel.setValue("Streak: " + streak);
+        
+        // How much points the user will gain when getting the point block
         int points = 1;
         
         if(streak >= 20)
@@ -88,6 +102,7 @@ public class MyWorld extends World {
             points = 2;
         }
         
+        // Updates score and score label
         score += points;
         scoreLabel.setValue("" + score);
     }
@@ -95,6 +110,9 @@ public class MyWorld extends World {
     // This method resets the players streak. It is called in the point block class
     public void resetStreak()
     {
+        // Reset streak to 0
         streak = 0;
+        // Updates streak label
+        streakLabel.setValue("Streak: 0");
     }
 }
