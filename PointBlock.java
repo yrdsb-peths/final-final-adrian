@@ -56,12 +56,6 @@ public class PointBlock extends Block
         if(removeIfOffScreen())
         {   
             // Checks if this world is the main world not the tutorial world
-            if(getWorld() instanceof MyWorld)
-            {
-                // Resets the players streak
-                World world = getWorld();
-                ((MyWorld)world).resetStreak();
-            }
             return;
         } 
         
@@ -74,6 +68,31 @@ public class PointBlock extends Block
         // Applies all these things to the block sprite
         updateBlock();
     }
+    
+    // Overide the parent class method. This method not only removes the block but also resets the streak
+    public boolean removeIfOffScreen()
+    {
+        World world = getWorld();
+        
+        if(world == null)
+        {
+            return true;
+        }
+        
+        if(getY() > 700)
+        {
+            if(getWorld() instanceof MyWorld)
+            {
+                // Resets the players streak
+                ((MyWorld)world).resetStreak();
+            }
+            getWorld().removeObject(this);
+            return true;
+        }
+        
+        return false;
+    }
+    
     
     public boolean checkCollision()
     {
