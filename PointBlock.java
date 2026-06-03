@@ -54,7 +54,14 @@ public class PointBlock extends Block
         }
 
         if(removeIfOffScreen())
-        {
+        {   
+            // Checks if this world is the main world not the tutorial world
+            if(getWorld() instanceof MyWorld)
+            {
+                // Resets the players streak
+                World world = getWorld();
+                ((MyWorld)world).resetStreak();
+            }
             return;
         } 
         
@@ -97,7 +104,7 @@ public class PointBlock extends Block
                 not tutorial world */
                 if(world instanceof MyWorld)
                 {
-                    ((MyWorld)world).addScore(1);
+                    ((MyWorld)world).addScore();
                 }
                 world.removeObject(this);
                 return true;

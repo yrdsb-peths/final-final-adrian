@@ -11,6 +11,9 @@ public class MyWorld extends World {
     // Label of the score
     private Label scoreLabel;
     
+    // Stores the player streak
+    private int streak = 0;
+    
     
     public MyWorld() {
         super(560, 720, 1);
@@ -70,9 +73,28 @@ public class MyWorld extends World {
     }
     
     // This method updates the score. It is called in the point block class
-    public void addScore(int points)
+    public void addScore()
     {
+        streak++;
+        
+        int points = 1;
+        
+        if(streak >= 20)
+        {
+            points = 4;
+        }
+        else if(streak >= 10)
+        {
+            points = 2;
+        }
+        
         score += points;
         scoreLabel.setValue("" + score);
+    }
+    
+    // This method resets the players streak. It is called in the point block class
+    public void resetStreak()
+    {
+        streak = 0;
     }
 }
