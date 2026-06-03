@@ -61,7 +61,7 @@ public class MyWorld extends World {
         if(blockSpawnTimer % 70 == 0)
         {
             // Sets random x position except for some space on the edges of screen
-            int posX = Greenfoot.getRandomNumber((getWidth() - 180 ) + 90);
+            int posX = 98 + Greenfoot.getRandomNumber(365);
             int posY = 30;
             
             // Generates a random number used to determine which block spawns
