@@ -107,12 +107,6 @@ public class MyWorld extends World {
         scoreLabel.setValue("" + score);
     }
     
-    // Returns the users score
-    public int getScore()
-    {
-        return score;
-    }
-    
     // This method resets the players streak. It is called in the point block class
     public void resetStreak()
     {
