@@ -38,5 +38,13 @@ public class GameOver extends World
         userScore.setFillColor(new Color(170, 51, 106));
         userScore.setLineColor(new Color(170, 51, 106)); 
         
+        // Add restart button
+        Button restartButton = new Button("game", "Restart");
+        addObject(restartButton, 280, 450);
+
+        // Add back to menu button
+        Button menuButton = new Button("title", "Menu");
+        addObject(menuButton, 280, 550);
+        
     }
 }
