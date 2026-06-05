@@ -115,4 +115,10 @@ public class MyWorld extends World {
         // Updates streak label
         streakLabel.setValue("Streak: 0");
     }
+    
+    // This method goes to the game over screen
+    public void gameOver()
+    {
+        Greenfoot.setWorld(new GameOver(score));
+    }
 }
