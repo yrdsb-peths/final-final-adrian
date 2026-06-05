@@ -143,7 +143,7 @@ public class Block extends Actor
             // to tell the game that the object is removed
             if(distance < 45)
             {
-                Greenfoot.stop();
+                ((MyWorld)world).gameOver();
                 return true;
             }
         }
