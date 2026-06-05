@@ -27,5 +27,7 @@ public class GameOver extends World
         addObject(gameOver, 280, 150);
         gameOver.setFillColor(new Color(170, 51, 106));
         gameOver.setLineColor(new Color(170, 51, 106)); 
+        
+        
     }
 }
