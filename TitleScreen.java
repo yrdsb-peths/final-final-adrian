@@ -28,7 +28,7 @@ public class TitleScreen extends World
         addObject(titleLabel1, 280, 250);
         addObject(titleLabel2, 280, 350);
         
-        // Set colors
+        // Set colors for labels
         titleLabel1.setLineColor(Color.WHITE);
         titleLabel2.setFillColor(new Color(170, 51, 106));
         titleLabel2.setLineColor(new Color(170, 51, 106)); 
