@@ -28,6 +28,15 @@ public class GameOver extends World
         gameOver.setFillColor(new Color(170, 51, 106));
         gameOver.setLineColor(new Color(170, 51, 106)); 
         
+        // Add score labels
+        Label scoreLabel = new Label("Score", 60);
+        addObject(scoreLabel, 280, 250);
+        scoreLabel.setLineColor(Color.WHITE);
+        
+        Label userScore = new Label(score, 60);
+        addObject(userScore, 280, 300);
+        userScore.setFillColor(new Color(170, 51, 106));
+        userScore.setLineColor(new Color(170, 51, 106)); 
         
     }
 }
