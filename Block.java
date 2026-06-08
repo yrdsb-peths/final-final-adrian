@@ -116,12 +116,13 @@ public class Block extends Actor
         return false;
     }
     
-    // If the block is touching the player, the game ends
+    // Checks for collisions with the player. If the block is touching the player, world changes to GameOver world 
     public boolean checkCollision()
     {
         // Gets this world
         World world = getWorld();
-        // Gets all players in this world (1) and stores it into a array and then get the first player in the array
+        /* This variable stores the player by
+        Getting all players in this world (1) and storing it into an array and then getting the first player in the array */
         Player player = (Player)world.getObjects(Player.class).get(0);
         
         // Gets the horizontal distance between the player and the block
@@ -129,7 +130,7 @@ public class Block extends Actor
         // Gets the vertical distance between the player and the block
         int yDistance = getY() - player.getY();
         
-        // Gets the shortest distance between the player and the block
+        // Gets the shortest distance between the player and the block (pythagorean theorem)
         double distance = (xDistance * xDistance) + (yDistance * yDistance);
         distance = Math.sqrt(distance);
         
@@ -143,6 +144,7 @@ public class Block extends Actor
             // to tell the game that the object is removed
             if(distance < 45)
             {
+                // Calls gameOver method in MyWorld class that changes the world to the GameOver world
                 ((MyWorld)world).gameOver();
                 return true;
             }

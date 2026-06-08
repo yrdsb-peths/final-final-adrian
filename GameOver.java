@@ -6,6 +6,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
+
+// This class is a subclass of World. It is a game over world, that opens when the user hits the red block.
 public class GameOver extends World
 {
 
@@ -15,7 +17,7 @@ public class GameOver extends World
      */
     public GameOver(int score)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 560x720 cells with a cell size of 1x1 pixels.
         super(560, 720, 1); 
         
         // Set background colour

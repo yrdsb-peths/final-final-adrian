@@ -42,6 +42,7 @@ public class PointBlock extends Block
         
     }
     
+    // Checks for collisions, if this block is off screen, animates the block, moves it downwards and rotates it
     public void act()
     {
         // Add your action code here.
@@ -93,7 +94,7 @@ public class PointBlock extends Block
         return false;
     }
     
-    
+    // Overide the parent class method. This method inrceases score and streak on collision wiht player instead of showing the game over screen.
     public boolean checkCollision()
     {
         // Gets this world
@@ -104,7 +105,8 @@ public class PointBlock extends Block
         // Ensures a player exists
         if(players.size() > 0)
         {
-            // Gets all players in this world (1) and stores it into a array and then get the first player in the array
+            /* This variable stores the player by
+            Getting all players in this world (1) and storing it into an array and then getting the first player in the array */
             Player player = (Player)world.getObjects(Player.class).get(0);
             
             // Gets the horizontal distance between the player and the block
@@ -112,24 +114,26 @@ public class PointBlock extends Block
             // Gets the vertical distance between the player and the block
             int yDistance = getY() - player.getY();
         
-            // Gets the shortest distance between the player and the block
+            // Gets the shortest distance between the player and the block (pythagorean theorem)
             double distance = (xDistance * xDistance) + (yDistance * yDistance);
             distance = Math.sqrt(distance);        
             
-            // If the distance between the objects is less than a certain distance then the use gets a point
+            // If the distance between the objects is less than a certain distance then the user gets a point
             if(distance < 45)
             {
-                /* Uses a method from the MyWorld world to update the score label that is in the MyWorld world only if it is in myWorld
+                /* Uses a method from the MyWorld world to update the score label (in MyWorld) only if it is in myWorld
                 not tutorial world */
                 if(world instanceof MyWorld)
                 {
                     ((MyWorld)world).addScore();
                 }
+                // Removes this object and returns true
                 world.removeObject(this);
                 return true;
             }
         }
         
+        // Returns false when this block has not collided 
         return false;        
     }
 }

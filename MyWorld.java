@@ -1,8 +1,9 @@
 import greenfoot.*;
 
+// This class is a subclass of World. It is the main game where the user dodges red blocks and aims for the stone blocks.
 public class MyWorld extends World {
     
-    // Timer that increases ever frame to control how long before a block spawns
+    // Timer that increases ever time act method is called to control how long before a block spawns
     private int blockSpawnTimer = 0;
     
     // Stores the users score
@@ -53,7 +54,7 @@ public class MyWorld extends World {
         spawnBlocks();
     }
     
-    // spawns block every 70 frames
+    // spawns block every 70 act method calls
     public void spawnBlocks()
     {
         blockSpawnTimer ++;
@@ -62,9 +63,10 @@ public class MyWorld extends World {
         {
             // Sets random x position except for some space on the edges of screen
             int posX = 98 + Greenfoot.getRandomNumber(365);
+            // Sets starting y position of the block
             int posY = 30;
             
-            // Generates a random number used to determine which block spawns
+            // Generates a random number used to determine which block spawns with bias towards the red (obstacle block)
             int random = Greenfoot.getRandomNumber(100);
             
             // Spawns either red or point block depending on the random number generated above
@@ -81,7 +83,7 @@ public class MyWorld extends World {
         
     }
     
-    // This method updates the score. It is called in the point block class
+    // This method updates the score. It is called in the point block class (in the checkCollision method)
     public void addScore()
     {
         // Updates streak
@@ -107,16 +109,18 @@ public class MyWorld extends World {
         scoreLabel.setValue("" + score);
     }
     
-    // This method resets the players streak. It is called in the point block class
+    /* This method resets the players streak when a point block falls off the screen. 
+    It is called in the point block class (in the removeIfOffScreen method) */
     public void resetStreak()
     {
         // Reset streak to 0
         streak = 0;
-        // Updates streak label
+        // Updates streak label to display 0
         streakLabel.setValue("Streak: 0");
     }
     
-    // This method goes to the game over screen
+    /* This method sets the world to GameOver screen when collided with the Red obstacle block. 
+    This method is called in the Block class (in the checkCollisions method) */
     public void gameOver()
     {
         Greenfoot.setWorld(new GameOver(score));
