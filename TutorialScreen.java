@@ -135,13 +135,38 @@ public class TutorialScreen extends World
             addObject(pointTwo, 280, 100);
             pointOne.setLineColor(Color.WHITE);
             pointTwo.setLineColor(Color.WHITE);
-                        
+            
+            // Adds next page button 
+            addObject(new NextPageButton(this, false), 450, 650);
+            
             // Adds back page button
             addObject(new NextPageButton(this, true), 100, 650);
             
             // Add player instance as an example
             Player ball = new Player(140, 280, 300, 0.055);
             addObject(ball, 280, 390);            
+        }
+        else if(pageNum == 4)
+        {
+            // This page explains the streak system
+            
+            // Streak explanation labels
+            Label streakExplainationOne = new Label("Higher streak", 80);
+            Label equalSign = new Label("=", 80);
+            Label streakExplainationTwo = new Label("More points!", 80);
+            
+            addObject(streakExplainationOne, 280, 50);
+            addObject(equalSign, 280, 100);
+            addObject(streakExplainationTwo, 280, 150);
+            
+            streakExplainationOne.setLineColor(Color.WHITE);
+            equalSign.setLineColor(Color.WHITE);
+            streakExplainationTwo.setLineColor(Color.WHITE);
+            
+            // Adds back page button
+            addObject(new NextPageButton(this, true), 100, 650);
+            
+            
         }
     }
     
