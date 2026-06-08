@@ -135,10 +135,7 @@ public class TutorialScreen extends World
             addObject(pointTwo, 280, 100);
             pointOne.setLineColor(Color.WHITE);
             pointTwo.setLineColor(Color.WHITE);
-            
-            // Adds next page button 
-            addObject(new NextPageButton(this, false), 450, 650);
-            
+                        
             // Adds back page button
             addObject(new NextPageButton(this, true), 100, 650);
             

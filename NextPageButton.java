@@ -49,6 +49,7 @@ public class NextPageButton extends Actor
     public void act()
     {
         // Add your action code here.
+        
         if(Greenfoot.mouseClicked(this))
         {
             if(isBackButton)
