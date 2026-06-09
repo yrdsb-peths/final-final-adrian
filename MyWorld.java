@@ -3,8 +3,11 @@ import greenfoot.*;
 // This class is a subclass of World. It is the main game where the user dodges red blocks and aims for the stone blocks.
 public class MyWorld extends World {
     
-    // Timer that increases ever time act method is called to control how long before a block spawns
+    // Timer that increases ever time act method is called, keeps track of how long the program has been running
     private int blockSpawnTimer = 0;
+    
+    // Timer that controls how long before a block will spawn
+    private int timeBeforeBlockSpawn = 70;
     
     // Stores the users score
     private int score = 0;
@@ -48,10 +51,15 @@ public class MyWorld extends World {
         
     }
     
-    // Continiously spawns blocks
+    // Continiously spawns blocks. Every 10 blocks spawned, blocks start spawning faster.
     public void act()
     {
         spawnBlocks();
+        
+        if(blockSpawnTimer % 700 == 0)
+        {
+            timeBeforeBlockSpawn = timeBeforeBlockSpawn - 5;
+        }
     }
     
     // spawns block every 70 act method calls
@@ -59,7 +67,7 @@ public class MyWorld extends World {
     {
         blockSpawnTimer ++;
         
-        if(blockSpawnTimer % 70 == 0)
+        if(blockSpawnTimer % timeBeforeBlockSpawn == 0)
         {
             // Sets random x position except for some space on the edges of screen
             int posX = 98 + Greenfoot.getRandomNumber(365);
