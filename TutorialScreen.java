@@ -155,13 +155,26 @@ public class TutorialScreen extends World
             Label equalSign = new Label("=", 80);
             Label streakExplainationTwo = new Label("More points!", 80);
             
+            Label streakExplainationThree = new Label("* Streak increases every time", 30); 
+            Label streakExplainationFour = new Label("you get a point block", 30);
+            Label streakExplainationFive = new Label("* Streak resets if you miss", 30);
+            Label streakExplainationSix = new Label("a point block", 30);
+            
             addObject(streakExplainationOne, 280, 50);
             addObject(equalSign, 280, 100);
             addObject(streakExplainationTwo, 280, 150);
+            addObject(streakExplainationThree, 200, 350);
+            addObject(streakExplainationFour, 200, 400);
+            addObject(streakExplainationFive, 200, 500);
+            addObject(streakExplainationSix, 200, 550);
             
             streakExplainationOne.setLineColor(Color.WHITE);
             equalSign.setLineColor(Color.WHITE);
             streakExplainationTwo.setLineColor(Color.WHITE);
+            streakExplainationThree.setLineColor(Color.WHITE);
+            streakExplainationFour.setLineColor(Color.WHITE);
+            streakExplainationFive.setLineColor(Color.WHITE);
+            streakExplainationSix.setLineColor(Color.WHITE);
             
             // Adds back page button
             addObject(new NextPageButton(this, true), 100, 650);
