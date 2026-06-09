@@ -77,14 +77,18 @@ public class MyWorld extends World {
             // Generates a random number used to determine which block spawns with bias towards the red (obstacle block)
             int random = Greenfoot.getRandomNumber(100);
             
-            // Spawns either red or point block depending on the random number generated above
-            if(random < 70)
+            // Spawns either red, point or dizzy block depending on the random number generated above
+            if(random < 70 && random > 10)
             {
                 addObject(new Block("Red", 5), posX, posY);
             }
             else if(random > 71)
             {
                 addObject(new PointBlock("Point", 5), posX, posY);
+            }
+            else if(random <= 10)
+            {
+                addObject(new DizzyBlock("Dizzy", 4), posX, posY);
             }
         }
         

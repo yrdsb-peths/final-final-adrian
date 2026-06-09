@@ -78,12 +78,18 @@ public class Player extends Actor
         * when it wasn't previously already pressed*/
         if(spaceDown && !wasSpaceDown)
         {
-            direction = direction * -1;
+            switchDirection();
         }
         
         // Updates the wasSpaceDown state to be the same as the spaceDown state right now
         wasSpaceDown = spaceDown;
         
+    }
+    
+    // Setter method to switch direction (has to be -1, or 1). This method is also used in DizzyBlock class
+    public void switchDirection()
+    {
+        direction = direction * -1;
     }
     
 }
