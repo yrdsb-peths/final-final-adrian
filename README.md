@@ -24,10 +24,16 @@ BLOCK FALL
 
 Image/Sound credits
 All block sprites: https://dribbble.com/shots/6318952-Blocks-Sprite-Collection (by Cristián Sepúlveda)
+
 Circle and ring sprite: https://www.iconsdb.com/pink-icons/circle-outline-icon.html (by website)
+
 Dizzy boing sound effect: https://www.myinstants.com/en/instant/boing-dizzy-36829/ (uploaded to myinstants.com by Im4974)
+
 Point sound effect: https://pixabay.com/sound-effects/film-special-effects-point-smooth-beep-230573/ (by Ribhav Agrawal)
+
 Damage sound effect: https://www.myinstants.com/en/instant/sonic-death-sound-effect-10357/ (uploaded to myinstants.com by sonic704)
+
 Game over sound effect: https://pixabay.com/sound-effects/musical-game-over-417465/ (uploaded to pixabay.com by alphix)
+
 Background music: https://pixabay.com/music/video-games-game-gaming-video-game-music-471936/ (Viacheslav Starostin)
 
