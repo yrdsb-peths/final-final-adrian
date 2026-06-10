@@ -1,22 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class TutorialScreen here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+// This is a subclass of the World class. This class is a tutorial world that shows users how to play.
 public class TutorialScreen extends World
 {
+    // Stores what page the user is on
     private int pageNum = 0;
     
     // Timer that controls how many frames before a block spawns
     private int blockSpawnTimer = 0;
     
-    /**
-     * Constructor for objects of class TutorialScreen.
-     * 
-     */
+    // Constructor
     public TutorialScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -26,18 +19,21 @@ public class TutorialScreen extends World
         getBackground().setColor(new Color(199, 174, 210));
         getBackground().fill();
         
+        // Loads the first page
         loadPage();
         
     }
     
+    // Depending on what page we are on, spawns a certain block continously as an example.
     public void act()
     {
         if(pageNum == 2)
         {
-            // Spawns tutorial red blocks randomly
+            // Spawns tutorial red blocks randomly on page 3 of the tutorial world
             int posX = Greenfoot.getRandomNumber((getWidth() - 300 ) + 150);
             int posY = 30;
             
+            // Spawns a block every 70 act calls
             blockSpawnTimer ++;
             if(blockSpawnTimer % 70 == 0)
             {
@@ -50,6 +46,7 @@ public class TutorialScreen extends World
             int posX = Greenfoot.getRandomNumber((getWidth() - 300 ) + 150);
             int posY = 30;
             
+            // Spawns a block every 70 act calls
             blockSpawnTimer ++;
             if(blockSpawnTimer % 70 == 0)
             {
@@ -62,6 +59,7 @@ public class TutorialScreen extends World
             int posX = Greenfoot.getRandomNumber((getWidth() - 300 ) + 150);
             int posY = 30;
             
+            // Spawns a block every 70 act calls
             blockSpawnTimer ++;
             if(blockSpawnTimer % 70 == 0)
             {
@@ -217,20 +215,20 @@ public class TutorialScreen extends World
     }
     
     // These methods updates the pageNum variable accordingly and uses the load page method
-    // These methods are called in the NextPageButton class and is used when that object is clicked
+    // These methods are called in the NextPageButton class (act method) and is used when that object is clicked
     public void nextPage()
     {
-        // Update the page number
+        // Updates the page number
         pageNum++;
-        // Load the current page
+        // Loads the next page
         loadPage();
     }
     
     public void prevPage()
     {
-        // Update the page number
+        // Updates the page number
         pageNum--;
-        // Load the current page
+        // Loads the previous page
         loadPage();
     }
 }

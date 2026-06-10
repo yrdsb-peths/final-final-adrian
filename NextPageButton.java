@@ -1,18 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class NextPageButton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+/* This class is a button specifically for the tutorial world. Instead of the other button class that leads to another world.
+   This button just updates a pageNum variable in the TutorialScreen class. */
 public class NextPageButton extends Actor
 {
+    // Stores a instance of tutorial screen
     private TutorialScreen tutorialScreen;
+    // Stores whether or not this button leads to the next page or the previous page
     private boolean isBackButton;
     
+    // Constructor that takes in a instance of tutorialScreen and a boolean
     public NextPageButton(TutorialScreen tutorialScreen, boolean isBackButton)
     {
+        // Sets up instance variables
         this.tutorialScreen = tutorialScreen;
         this.isBackButton = isBackButton;
         
@@ -20,7 +20,7 @@ public class NextPageButton extends Actor
         GreenfootImage buttonImage = new GreenfootImage("images/Button.png");
         buttonImage.scale(200,70);
         
-        // Create the text image
+        // Create the text image depending on if its a back or next button
         GreenfootImage textImage;
         if(isBackButton)
         {
@@ -42,13 +42,10 @@ public class NextPageButton extends Actor
         setImage(buttonImage);
     }
     
-    /**
-     * Act - do whatever the NextPageButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    // Constantly checks if this object is clicked
     public void act()
     {
-        // Add your action code here.
+        // Depending on if this object is a backButton or not, pageNum variable in TutorialScreen class increases or decreases
         
         if(Greenfoot.mouseClicked(this))
         {

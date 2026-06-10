@@ -1,54 +1,50 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Block here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+// This is the obstacle block that the user will try and dodge
 public class Block extends Actor
 {
+    // Array that stores all the poses of this block
     GreenfootImage [] expression = new GreenfootImage[2];
+    // Sets up a timer used for animations
     SimpleTimer animationTimer = new SimpleTimer();
     
-    // Block image
+    // Stores the Block's image
     private String blockType;
-    // Falling speed
+    // How fast the block falls
     private int speed;
     
-    // What rotation offset we are on
+    // Stores what rotation offset we are on
     private int rotation = 0;
     // Rotation speed
     private int rotationSpeed = 1;
     
-    /**
-     * Act - do whatever the Block wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    // Constructor. Takes a string that is used to determine the image, and a int that controlls the speed.
     public Block(String blockType, int speed)
     {
-        // Sets instance variables
+        // Sets up instance variables
         this.speed = speed;
         this.blockType = blockType;
         
+        // Adjusts all poses of the block to make animation, and block movement and rotation smooth.
         for (int i = 0; i < expression.length; i++)
         {
-            // Original image
+            // Original pose
             GreenfootImage original = new GreenfootImage("images/" + blockType + i + ".png");
 
-            // Scale the visible block
+            // Scale the visible block pose
             original.scale(55, 55);
 
-            // Create larger white square image to so when the block rotates the corners do not get clipped
+            // Create larger white square image so when the block rotates the corners do not get clipped
             GreenfootImage largerCanvas = new GreenfootImage(80, 80);
 
-            // Draws original visible image onto the center of the white square
+            // Draws original visible pose onto the center of the white square
             largerCanvas.drawImage(original, 15, 15);
 
-            // Store the clear canvas image
+            // Store the whole new image
             expression[i] = largerCanvas;
         }
         
+        // Marks the current moment of the animation timer
         animationTimer.mark();
         
         // Sets original image
@@ -65,17 +61,18 @@ public class Block extends Actor
         {
             return;
         }
+        // Marks the current time
         animationTimer.mark();
         
-        // Loops through and back the array    
+        // Loops through and back the array to keep a constant animation
         imageIndex = (imageIndex + 1) % expression.length;
     
     }
     
-    // Updates the block rotation on the actual block sprite
+    // Updates the block sprite with the new rotation
     public void updateBlock()
     {
-        // Create a copy of the current frame to not mess with the animations
+        // Create a copy of the current pose to not mess with the animations
         GreenfootImage frame = new GreenfootImage(expression[imageIndex]);
         
         // Rotate frame
@@ -155,9 +152,10 @@ public class Block extends Actor
         
     }
     
+    /* Constantly moves the block downwards while animating it and rotating it. Also checks whether it has colliding with the player
+     or has fallen off the world */
     public void act()
     {
-        // Add your action code here.
         
         // These two if statements check if the object actually exists and has not been removed, before doing anything else with them
         if (checkCollision()) 
@@ -168,10 +166,15 @@ public class Block extends Actor
         if(removeIfOffScreen())
         {
             return;
-        } 
+        }
+        
+        // Animate the block
         animateBlock();
+        // Move it downwards
         fall();
+        // Rotates it
         rotateBlock();
+        // Add all updates to the block
         updateBlock();
     }
 }
