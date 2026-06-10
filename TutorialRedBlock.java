@@ -4,6 +4,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  in the tutorial */
 public class TutorialRedBlock extends Block
 {
+    // Stores the sound that is played when they player collides with this block
+    GreenfootSound damage = new GreenfootSound("damage.mp3");
+    
     // Constructor. Same as parent class
     public TutorialRedBlock(String blockType, int speed)
     {
@@ -60,6 +63,9 @@ public class TutorialRedBlock extends Block
             // to tell the game that the object is removed
             if(distance < 45)
             {
+                // Plays damage sound
+                damage.play();
+                // Removes this object
                 world.removeObject(this);
                 return true;
             }
