@@ -18,6 +18,9 @@ public class Block extends Actor
     // Rotation speed
     private int rotationSpeed = 1;
     
+    // Stores the sound of the block when it collides with the player
+    GreenfootSound gameEndSound = new GreenfootSound("gameover.mp3");
+    
     // Constructor. Takes a string that is used to determine the image, and a int that controlls the speed.
     public Block(String blockType, int speed)
     {
@@ -143,6 +146,8 @@ public class Block extends Actor
             {
                 // Calls gameOver method in MyWorld class that changes the world to the GameOver world
                 ((MyWorld)world).gameOver();
+                // Plays game over sound
+                gameEndSound.play();
                 return true;
             }
         }
