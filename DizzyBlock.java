@@ -3,6 +3,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 // Subclass of the Block class. This block switches player direction on collision instead of ending the game.
 public class DizzyBlock extends Block
 {
+    // Stores the sound that plays when the player collides with this block
+    GreenfootSound boing = new GreenfootSound("dizzy.mp3");
+    
     // Constructor. Same as parent class
     public DizzyBlock(String blockType, int speed)
     {
@@ -62,6 +65,9 @@ public class DizzyBlock extends Block
             // If the distance between the objects is less than a certain distance then the user gets a point
             if(distance < 45)
             {
+                // Plays boing sound effect
+                boing.play();
+                
                 // Calls a Player Class method on the player to switch the direction 
                 player.switchDirection();
                 
