@@ -11,10 +11,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameOver extends World
 {
 
-    /**
-     * Constructor for objects of class GameOver.
-     * 
-     */
+    // Constructor. Takes score as a parameter.
     public GameOver(int score)
     {    
         // Create a new world with 560x720 cells with a cell size of 1x1 pixels.
@@ -30,7 +27,7 @@ public class GameOver extends World
         gameOver.setFillColor(new Color(170, 51, 106));
         gameOver.setLineColor(new Color(170, 51, 106)); 
         
-        // Add score labels
+        // Add score labels and displays the user's score before the game ended
         Label scoreLabel = new Label("Score", 60);
         addObject(scoreLabel, 280, 250);
         scoreLabel.setLineColor(Color.WHITE);

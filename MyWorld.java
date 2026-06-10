@@ -12,17 +12,18 @@ public class MyWorld extends World {
     // Stores the users score
     private int score = 0;
     
-    // Label of the score
+    // Label of the users score
     private Label scoreLabel;
     
-    // Label of the streak
+    // Label of the users streak
     private Label streakLabel;
     
     // Stores the player streak
     private int streak = 0;
     
-    
+    // Constructor
     public MyWorld() {
+        // Sets world size
         super(560, 720, 1);
         
         // Set background colour
@@ -62,11 +63,13 @@ public class MyWorld extends World {
         }
     }
     
-    // spawns block every 70 act method calls
+    // Spawns blocks every certain amount of times the act method was called
     public void spawnBlocks()
     {
+        // Update how long the world has been running for
         blockSpawnTimer ++;
         
+        // Checks if enough time has passed before spawning a block
         if(blockSpawnTimer % timeBeforeBlockSpawn == 0)
         {
             // Sets random x position except for some space on the edges of screen
@@ -107,16 +110,13 @@ public class MyWorld extends World {
         // How much points the user will gain when getting the point block
         int points = 1;
         
-        if(streak >= 20)
+        // Depending on the streak, the user will get more points. Every 10 streaks, + 2 points.
+        if(streak > 10)
         {
-            points = 4;
-        }
-        else if(streak >= 10)
-        {
-            points = 2;
+            points = (streak/10) * 2;
         }
         
-        // Updates score and score label
+        // Updates the users score and the score label
         score += points;
         scoreLabel.setValue("" + score);
     }
