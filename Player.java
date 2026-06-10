@@ -1,13 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Player here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+// This is the player class. This is what the user will play as.
 public class Player extends Actor
 {
+    
     // Angle relative to the center point of an imaginary circle
     double angle = 0;
     
@@ -18,15 +14,18 @@ public class Player extends Actor
     private int xCenter;
     private int yCenter;
     
-    // Changes how big the changes in the angle is, which determines how fast the player moves around the circle
+    // The instance variables above determine the player movement as the player moves in a circluar motion
+    
+    // Changes how big the changes in the angles are, which determines how fast the player moves around the circle
     private double speed;
     
     // 1 for clockwise and -1 for counter clockwise
     int direction = 1;
     
-    // Player constructor
+    // Player constructor. Takes in a 3 ints, radius and x/y position of the center that player orbits. Takes a double, which is the speed.
     public Player(int radius, int xCenter, int yCenter, double speed)
     {
+        // Sets up instance variables
         this.radius = radius;
         this.xCenter = xCenter;
         this.yCenter = yCenter;
@@ -38,13 +37,9 @@ public class Player extends Actor
         setImage(image);        
     }
     
-    /**
-     * Act - do whatever the Player wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    // Constantly moves the player, and checks for the user pressing space.
     public void act()
     {
-        // Add your action code here.
         movePlayer();
         changeDirection();
     }
@@ -74,8 +69,7 @@ public class Player extends Actor
         // Stores whether or not space is down right now
         boolean spaceDown = Greenfoot.isKeyDown("space");
         
-        /* Makes the direction positive or negative when space is pressed if the the space button is pressed 
-        * when it wasn't previously already pressed*/
+        // Switches the direction when space is pressed
         if(spaceDown && !wasSpaceDown)
         {
             switchDirection();
@@ -86,7 +80,7 @@ public class Player extends Actor
         
     }
     
-    // Setter method to switch direction (has to be -1, or 1). This method is also used in DizzyBlock class
+    // Method to switch direction. This method is also used in DizzyBlock class
     public void switchDirection()
     {
         direction = direction * -1;

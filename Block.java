@@ -47,7 +47,7 @@ public class Block extends Actor
         // Marks the current moment of the animation timer
         animationTimer.mark();
         
-        // Sets original image
+        // Sets the first pose
         setImage(expression[0]);
     }
     
@@ -152,7 +152,7 @@ public class Block extends Actor
         
     }
     
-    /* Constantly moves the block downwards while animating it and rotating it. Also checks whether it has colliding with the player
+    /* Constantly moves the block downwards while animating it and rotating it. Also checks whether it has collided with the player
      or has fallen off the world */
     public void act()
     {

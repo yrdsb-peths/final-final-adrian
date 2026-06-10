@@ -1,11 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Button here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+// This is a button class. If it is clicked, you will go to another world.
 public class Button extends Actor
 {
     // Stores a string that is used to determine what world does this button lead to
@@ -13,15 +8,10 @@ public class Button extends Actor
     // Stores a string which is the text displayed on the button
     private String text;
     
-    
-    /**
-     * Act - do whatever the Button wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     // Constructor, takes two strings, one is the next world, and the other is the text displayed on the button
     public Button(String nextWorld, String text)
     {
-        // Sets instance variables
+        // Sets up instance variables
         this.nextWorld = nextWorld;
         this.text = text;
         
@@ -39,22 +29,21 @@ public class Button extends Actor
         // Draw the text image right onto the button image
         buttonImage.drawImage(textImage, textX, textY);
         
-        // Set the new button image with text
+        // Sets up the new button image with text
         setImage(buttonImage);
         
     }
     
-    
+    // Constantly checks if the button if clicked
     public void act()
     {
-        // Constantly checks if the button if clicked
         checkForClick();
     }
     
-    // Checks if the user clicks the button
+    // Checks for a click on this object
     public void checkForClick()
     {
-        // Goes to the corresponding world
+        // Goes to the corresponding world if clicked
          if(Greenfoot.mouseClicked(this))
         {
             if(nextWorld.equals("title"))

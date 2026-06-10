@@ -1,15 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class TutorialRedBlock here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+/* This class is a subclass of Block. It is a obstacle block made specifically for the tutorial world to avoid showing game over screen
+ in the tutorial */
 public class TutorialRedBlock extends Block
 {
+    // Constructor. Same as parent class
     public TutorialRedBlock(String blockType, int speed)
     {
+        // Sets up instance variable
         super(blockType, speed);
     }
     
@@ -35,6 +33,7 @@ public class TutorialRedBlock extends Block
         updateBlock();
     }
     
+    // Overrides parent class method. On collision,the game doesn't end, instead the block just gets removed.
     public boolean checkCollision()
     {
         // Gets this world

@@ -1,17 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class DizzyBlock here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+// Subclass of the Block class. This block switches player direction on collision instead of ending the game.
 public class DizzyBlock extends Block
 {
+    // Constructor. Same as parent class
     public DizzyBlock(String blockType, int speed)
     {
         super(blockType, speed);
         
+        // Adjusts all poses of the block to make animation, and block movement and rotation smooth.
         for (int i = 0; i < expression.length; i++)
         {
             // Original image
@@ -30,6 +27,7 @@ public class DizzyBlock extends Block
             expression[i] = largerCanvas;
         }
         
+        // Marks the current moment of the animation timer
         animationTimer.mark();
         
         // Sets original image
@@ -49,7 +47,7 @@ public class DizzyBlock extends Block
         if(players.size() > 0)
         {
             /* This variable stores the player by
-            Getting all players in this world (1) and storing it into an array and then getting the first player in the array */
+            getting all players in this world (1) and storing it into an array and then getting the first player in the array */
             Player player = (Player)world.getObjects(Player.class).get(0);
             
             // Gets the horizontal distance between the player and the block
@@ -64,6 +62,7 @@ public class DizzyBlock extends Block
             // If the distance between the objects is less than a certain distance then the user gets a point
             if(distance < 45)
             {
+                // Calls a Player Class method on the player to switch the direction 
                 player.switchDirection();
                 
                 // Removes this object and returns true
@@ -76,7 +75,8 @@ public class DizzyBlock extends Block
         return false;        
     }
     
-    
+    /* Constantly moves the block downwards while animating it and rotating it. Also checks whether it has collided with the player
+     or has fallen off the world */
     public void act()
     {
         // Add your action code here.

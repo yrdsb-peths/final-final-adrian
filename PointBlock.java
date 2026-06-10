@@ -1,22 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class PointBlock here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+// This class is a subclass of the Block class. This is a point block that the user aims for, to increase score.
 public class PointBlock extends Block
 {
-    /**
-     * Act - do whatever the PointBlock wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    // Contructor
+    // Contructor. Same as parent class.
     public PointBlock(String blockType, int speed)
     {
+        // Sets up instance variables
         super(blockType, speed);
         
+        // Adjusts all poses of the block to make animation, and block movement and rotation smooth.
         for (int i = 0; i < expression.length; i++)
         {
             // Original image
@@ -35,9 +28,10 @@ public class PointBlock extends Block
             expression[i] = largerCanvas;
         }
         
+        // Marks the current moment of the animation timer
         animationTimer.mark();
         
-        // Sets original image
+        // Sets the first pose
         setImage(expression[0]);
         
     }
@@ -73,13 +67,16 @@ public class PointBlock extends Block
     // Overide the parent class method. This method not only removes the block but also resets the streak
     public boolean removeIfOffScreen()
     {
+        // Gets this world
         World world = getWorld();
         
+        // Checks if it exists 
         if(world == null)
         {
             return true;
         }
         
+        // Checks if the block is out of the world and if the world is in the main world and not in the tutorial world
         if(getY() > 700)
         {
             if(getWorld() instanceof MyWorld)
@@ -87,10 +84,11 @@ public class PointBlock extends Block
                 // Resets the players streak
                 ((MyWorld)world).resetStreak();
             }
+            // Removes this object and returns true
             getWorld().removeObject(this);
             return true;
         }
-        
+        // Return false if not off screen
         return false;
     }
     
