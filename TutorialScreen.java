@@ -56,6 +56,18 @@ public class TutorialScreen extends World
                 addObject(new PointBlock("Point", 5), posX, posY);
             }
         }
+        else if(pageNum == 4)
+        {
+            // Spawns point blocks randomly on page 5 of the tutorial world
+            int posX = Greenfoot.getRandomNumber((getWidth() - 300 ) + 150);
+            int posY = 30;
+            
+            blockSpawnTimer ++;
+            if(blockSpawnTimer % 70 == 0)
+            {
+                addObject(new DizzyBlock("Dizzy", 5), posX, posY);
+            }
+        }
     }
     
     // Loads a new page
@@ -147,6 +159,27 @@ public class TutorialScreen extends World
             addObject(ball, 280, 390);            
         }
         else if(pageNum == 4)
+        {
+            // This page explains what the dizzy block is
+            // Dizzy block explaination labels
+            Label dizzyLabelOne = new Label("Dizzy blocks forces", 60);
+            Label dizzyLabelTwo = new Label("a change of direction", 60);
+            addObject(dizzyLabelOne, 280, 50);
+            addObject(dizzyLabelTwo, 280, 100);
+            dizzyLabelOne.setLineColor(Color.WHITE);
+            dizzyLabelTwo.setLineColor(Color.WHITE);
+            
+            // Adds next page button 
+            addObject(new NextPageButton(this, false), 450, 650);
+            
+            // Adds back page button
+            addObject(new NextPageButton(this, true), 100, 650);
+            
+            // Add player instance as an example
+            Player ball = new Player(140, 280, 300, 0.055);
+            addObject(ball, 280, 390);        
+        }
+        else if(pageNum == 5)
         {
             // This page explains the streak system
             
