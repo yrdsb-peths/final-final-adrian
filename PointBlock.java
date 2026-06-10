@@ -3,6 +3,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 // This class is a subclass of the Block class. This is a point block that the user aims for, to increase score.
 public class PointBlock extends Block
 {
+    // Stores the sound that is played when the player collides with this block
+    GreenfootSound pointGained = new GreenfootSound("gainPoint.mp3");
+    
     // Contructor. Same as parent class.
     public PointBlock(String blockType, int speed)
     {
@@ -119,6 +122,9 @@ public class PointBlock extends Block
             // If the distance between the objects is less than a certain distance then the user gets a point
             if(distance < 45)
             {
+                // Plays point sound
+                pointGained.play();
+                
                 /* Uses a method from the MyWorld world to update the score label (in MyWorld) only if it is in myWorld
                 not tutorial world */
                 if(world instanceof MyWorld)
