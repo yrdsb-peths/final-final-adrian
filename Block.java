@@ -144,6 +144,8 @@ public class Block extends Actor
             // to tell the game that the object is removed
             if(distance < 45)
             {
+                // Stops background music
+                ((MyWorld)world).stopBackgroundMusic();
                 // Plays game over sound
                 gameEndSound.play();
                 // Calls gameOver method in MyWorld class that changes the world to the GameOver world

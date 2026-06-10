@@ -3,6 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 // This class is a subclass of world. It is the title screen of the game
 public class TitleScreen extends World
 {
+    
     // Constructor
     public TitleScreen()
     {    
@@ -33,6 +34,7 @@ public class TitleScreen extends World
         // Add tutorial button which leads to the tutorial
         Button tutorialButton = new Button("tutorial", "Tutorial");
         addObject(tutorialButton, 280, 600);
-    
+        
     }
+    
 }

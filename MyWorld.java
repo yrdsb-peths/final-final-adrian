@@ -2,6 +2,8 @@ import greenfoot.*;
 
 // This class is a subclass of World. It is the main game where the user dodges red blocks and aims for the stone blocks.
 public class MyWorld extends World {
+    // Stores the background music of the game
+    GreenfootSound background = new GreenfootSound("background.mp3");
     
     // Timer that increases ever time act method is called, keeps track of how long the program has been running
     private int blockSpawnTimer = 0;
@@ -25,6 +27,10 @@ public class MyWorld extends World {
     public MyWorld() {
         // Sets world size
         super(560, 720, 1);
+        
+        // Play background noise
+        background.setVolume(30);
+        background.playLoop();
         
         // Set background colour
         getBackground().setColor(new Color(199, 174, 210));
@@ -136,5 +142,13 @@ public class MyWorld extends World {
     public void gameOver()
     {
         Greenfoot.setWorld(new GameOver(score));
+    }
+    
+    // Stops the background noise. Called in Block class (in the checkCollisions method)
+    public void stopBackgroundMusic()
+    {
+        if (background.isPlaying()) {
+            background.stop();
+        }
     }
 }

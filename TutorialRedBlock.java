@@ -65,6 +65,7 @@ public class TutorialRedBlock extends Block
             {
                 // Plays damage sound
                 damage.play();
+                
                 // Removes this object
                 world.removeObject(this);
                 return true;
