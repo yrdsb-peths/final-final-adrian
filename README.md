@@ -20,9 +20,10 @@ Copy the `project.greenfoot.md` file and rename it to `project.greenfoot`
 [Markdown basics](https://www.markdownguide.org/getting-started/)
 
 BLOCK FALL
-  My game is an obstacle dodging game. To get started, click the tutorial button and learn the game mechanics. There you will learn the player movement, the 3 types of blocks and other game mechanics. The player in this game is a simple circle, you will constantly move in a circular motion pressing space to switch directoins. The goal of this game is to dodge the red obstacle blocks, while trying to go for the grey point blocks and scoring the highest score you can before losing.
+My game is an obstacle dodging game. To get started, click the tutorial button and learn the game mechanics. There you will learn the player movement, the 3 types of blocks and other game mechanics. The player in this game is a simple circle, you will constantly move in a circular motion pressing space to switch directoins. The goal of this game is to dodge the red obstacle blocks, while trying to go for the grey point blocks and scoring the highest score you can before losing.
 
 Image/Sound credits
+
 All block sprites: https://dribbble.com/shots/6318952-Blocks-Sprite-Collection (by Cristián Sepúlveda)
 
 Circle and ring sprite: https://www.iconsdb.com/pink-icons/circle-outline-icon.html (by website)
